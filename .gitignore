@@ -1,0 +1,38 @@
+# Environment and secrets
+.env
+.venv/
+venv/
+env/
+
+# Build and install
+build/
+dist/
+*.egg-info/
+*.egg
+
+# IDE and OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Testing and coverage
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Project-specific
+pc_build.txt
+*.log
+
+# Backend (new)
+backend/pcbuilder.db
+backend/checkpoints.sqlite
+backend/__pycache__/
+backend/app/__pycache__/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/

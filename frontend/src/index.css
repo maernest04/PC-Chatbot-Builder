@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --accent: 99 102 241;   /* indigo-500 */
+  --accent-hover: 79 70 229;
+  --surface: 248 250 252;
+  --surface-elevated: 255 255 255;
+  --border: 226 232 240;
+  --text: 15 23 42;
+  --text-muted: 100 116 139;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: 129 140 248;
+    --accent-hover: 99 102 241;
+    --surface: 15 23 42;
+    --surface-elevated: 30 41 59;
+    --border: 51 65 85;
+    --text: 248 250 252;
+    --text-muted: 148 163 184;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Subtle grid background for chat area */
+.chat-bg {
+  background-color: rgb(var(--surface));
+  background-image:
+    radial-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+    radial-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.25s ease-out;
+}
+
+/* Scrollbar styling */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: rgb(var(--border));
+  border-radius: 3px;
+}
