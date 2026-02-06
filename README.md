@@ -2,6 +2,8 @@
 
 A PC building chatbot with **LangGraph** (state machine + tools), a **database** for parts and chat history, and a **React** frontend. The assistant suggests parts from a curated catalog, computes totals with tax, and persists sessions and builds.
 
+![PC Builder UI screenshot](docs/ui-screenshot.png)
+
 ## Architecture
 
 - **Backend**: FastAPI + LangGraph + SQLAlchemy (SQLite). The graph uses an LLM with tools: `search_parts` (DB lookup by category/budget) and `get_build_total` (subtotal + tax by region). Flow is code-defined; no fragile “next state” from the LLM.
@@ -68,10 +70,3 @@ data/
   parts_seed.json   # Curated parts (categories, names, prices, links)
 _archive/           # Old CLI scripts (do not use; keys redacted)
 ```
-
-## Optional
-
-- **Refresh parts**: From project root, run `cd backend && PYTHONPATH=. python scripts/refresh_parts.py` to re-run the seed (upserts by category+name).
-- **Database**: Set `DATABASE_URL` in `.env` for a different SQLite path or Postgres.
-- **Checkpointer**: Set `CHECKPOINT_DB` for a different LangGraph checkpoint DB path.
-# PC-Chatbot-Builder
